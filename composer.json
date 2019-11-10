@@ -1,0 +1,17 @@
+{
+    "name": "filtercreator/filtercreator",
+    "description": "FilterCreator é uma biblioteca PHP para auxiliar na criação de filtros",
+    "type": "library",
+    "authors": [
+        {
+            "name": "bruno",
+            "email": "bruno.mendes51@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "FilterCreator\\": "src/"
+        }
+    }
+}
