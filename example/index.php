@@ -11,7 +11,7 @@ require 'Endereco.php';
 
 $filter = new FilterCreator\Filter();
 $filter->setButtonName('Filtrar');
-$filter->attach('/usuarios/filtrar');
+$filter->attach('Usuario.filtrar()');
 $select = new Usuario();
 $input = new Endereco();
 $filter->add($select);

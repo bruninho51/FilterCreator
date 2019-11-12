@@ -5,15 +5,20 @@ namespace FilterCreator;
 
 
 use FilterCreator\Contracts\IFilter;
+use FilterCreator\Exceptions\FilterCreatorInvalidAttachmentException;
 use FilterCreator\Exceptions\FilterCreatorNotContractException;
 
 class Filter
 {
-
     /**
      * @var string
      */
     private $attachment;
+
+    /**
+     * @var string
+     */
+    private $attachmentType;
 
     /**
      * @var string
@@ -34,6 +39,7 @@ class Filter
     /**
      * Serve para anexar a rota ou script que deve ser chamado
      * @param String $attachment
+     * @throws FilterCreatorInvalidAttachmentException
      */
     public function attach(String $attachment) : void
     {
@@ -70,7 +76,7 @@ class Filter
      */
     public function mount() : String
     {
-        $aux = '';
+        $aux = '<div>';
         $iterator = $this->filters->getIterator();
         while ($iterator->valid()) {
             $filter = $iterator->current();
@@ -78,7 +84,17 @@ class Filter
 
             $iterator->next();
         }
+        $aux .= $this->createButton();
+        $aux .= '</div>';
 
         return $aux;
+    }
+
+    protected function createButton()
+    {
+        $onClick = "onclick='{$this->attachment}'";
+        $button = "<input type='button' {$onClick} value='{$this->buttonName}'>";
+
+        return $button;
     }
 }
