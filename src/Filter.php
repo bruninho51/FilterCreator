@@ -11,6 +11,10 @@ use FilterCreator\Exceptions\FilterCreatorNotContractException;
 class Filter
 {
     /**
+     * @var bool
+     */
+    public $enableButtonFilter;
+    /**
      * @var string
      */
     protected $attachment;
@@ -40,6 +44,7 @@ class Filter
         $this->buttonName = 'Filter';
         $this->filters = new \ArrayObject();
         $this->buttons = new \ArrayObject();
+        $this->enableButtonFilter = true;
     }
 
     /**
@@ -101,7 +106,9 @@ class Filter
         }
 
         $aux .= '<div>';
-        $aux .= $this->createButton();
+        if ($this->enableButtonFilter) {
+            $aux .= $this->createButton();
+        }
         $itButtons = $this->buttons->getIterator();
         while ($itButtons->valid()) {
             $aux .= $itButtons->current()->mount();
