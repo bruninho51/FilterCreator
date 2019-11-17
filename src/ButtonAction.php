@@ -3,7 +3,7 @@
 
 namespace FilterCreator;
 
-abstract class ButtonFunction extends BaseButton
+class ButtonAction extends BaseButton
 {
     public function mount(): String
     {
