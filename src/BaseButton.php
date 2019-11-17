@@ -10,9 +10,7 @@ abstract class BaseButton
     protected $title;
     protected $id;
     protected $classes;
-    protected $values;
-    protected $controller;
-    protected $method;
+    protected $route;
     protected $script;
 
     public function __construct($title)
@@ -53,10 +51,8 @@ abstract class BaseButton
         $this->script = $script;
     }
 
-    public function setController($controller)
+    public function setRoute($route)
     {
-        $arrController = explode('@', $controller);
-        $this->controller = $arrController[0];
-        $this->method = $arrController[1];
+        $this->route = $route;
     }
 }
