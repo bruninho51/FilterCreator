@@ -39,6 +39,7 @@ class Filter
     {
         $this->buttonName = 'Filter';
         $this->filters = new \ArrayObject();
+        $this->buttons = new \ArrayObject();
     }
 
     /**
