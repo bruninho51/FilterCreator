@@ -13,22 +13,22 @@ class Filter
     /**
      * @var string
      */
-    private $attachment;
+    protected $attachment;
 
     /**
      * @var string
      */
-    private $attachmentType;
+    protected $attachmentType;
 
     /**
      * @var string
      */
-    private $buttonName;
+    protected $buttonName;
 
     /**
      * @var \ArrayObject
      */
-    private $filters;
+    protected $filters;
 
     public function __construct()
     {
