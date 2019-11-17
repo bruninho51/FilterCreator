@@ -13,10 +13,9 @@ class ButtonAction extends BaseButton
                     type='button' 
                     id='{$this->id}' 
                     name='{$this->name}' 
-                    $classes='{$classes}'
+                    class='{$classes}'
                     value='{$this->title}'
-                    data-controller='{$this->controller}'
-                    data-method='{$this->method}'
+                    data-route='{$this->route}'
                     onclick='{$this->script}'>";
 
         return $html;
