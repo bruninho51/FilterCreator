@@ -30,6 +30,11 @@ class Filter
      */
     protected $filters;
 
+    /**
+     * @var \ArrayObject
+     */
+    protected $buttons;
+
     public function __construct()
     {
         $this->buttonName = 'Filter';
@@ -71,6 +76,15 @@ class Filter
     }
 
     /**
+     * Adiciona um botão de ação ao builder
+     * @param BaseButton $button
+     */
+    public function addButton(BaseButton $button) : void
+    {
+        $this->buttons->append($button);
+    }
+
+    /**
      * Monta os filtros
      * @return String
      */
@@ -84,7 +98,16 @@ class Filter
 
             $iterator->next();
         }
+
+        $aux .= '<div>';
         $aux .= $this->createButton();
+        $itButtons = $this->buttons->getIterator();
+        while ($itButtons->valid()) {
+            $aux .= $itButtons->current()->mount();
+
+            $itButtons->next();
+        }
+        $aux .= '</div>';
         $aux .= '</div>';
 
         return $aux;
